@@ -45,20 +45,16 @@ devtools::install_github("mhanf/ShinyFriendlyCaptcha")
 ## Example
 
 In order to use the ShinyFriendlyCaptcha library, you’ll need to go to
-the Friendly Captcha [websitete](https://friendlycaptcha.com/) and
-subscribe a plan to generate valid `SITEKEY` and `SECRET` strings.
-
-A free plan is proposed to developers for non-commercial use (protection
+the Friendly Captcha [website](https://friendlycaptcha.com/) and
+subscribe a plan to generate valid `SITEKEY` and `SECRET` strings. A
+free plan is proposed to developers for non-commercial use (protection
 of 1 website with up to 1,000 requests/month). For more details go to
 their [website](https://friendlycaptcha.com/).
 
 ShinyFriendlyCaptcha exports two main functions: `sfc_output()` and
-`sfc_server()`.
-
-A vignette is available [here]() to help in the proper setup of these
-functions.
-
-A Shiny app example using these functions can be created as follows:
+`sfc_server()`. A vignette is available [here]() to help in the proper
+setup of these functions. A Shiny app example using these functions can
+be created as follows:
 
 **work in progress**
 

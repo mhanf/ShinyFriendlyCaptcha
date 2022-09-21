@@ -53,8 +53,8 @@ their [website](https://friendlycaptcha.com/).
 
 ShinyFriendlyCaptcha exports two main functions: `sfc_output()` and
 `sfc_server()`. A vignette is available [here]() to help in the proper
-setup of these functions. A Shiny app example using these functions can
-be created as follows:
+setup of these functions. A minimalistic Shiny app example using these
+functions can be created as follows:
 
 ``` r
 # libraries

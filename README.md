@@ -45,8 +45,8 @@ devtools::install_github("mhanf/ShinyFriendlyCaptcha")
 ## Example
 
 In order to use the ShinyFriendlyCaptcha library, you’ll need to go to
-Friendly Captcha [webiste](https://friendlycaptcha.com/) and subscribe a
-plan to generate `SITEKEY` and `SECRET` strings.
+the Friendly Captcha [websitete](https://friendlycaptcha.com/) and
+subscribe a plan to generate valid `SITEKEY` and `SECRET` strings.
 
 A free plan is proposed to developers for non-commercial use (protection
 of 1 website with up to 1,000 requests/month). For more details go to

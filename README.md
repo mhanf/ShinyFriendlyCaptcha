@@ -40,32 +40,6 @@ You can install the development version of ShinyFriendlyCaptcha from
 ``` r
 # install.packages("devtools")
 devtools::install_github("mhanf/ShinyFriendlyCaptcha")
-#> Downloading GitHub repo mhanf/ShinyFriendlyCaptcha@HEAD
-#> glue   (1.6.1 -> 1.6.2) [CRAN]
-#> Rcpp   (1.0.7 -> 1.0.9) [CRAN]
-#> httpuv (1.6.3 -> 1.6.6) [CRAN]
-#> Installing 3 packages: glue, Rcpp, httpuv
-#> package 'glue' successfully unpacked and MD5 sums checked
-#> Warning: cannot remove prior installation of package 'glue'
-#> Warning in file.copy(savedcopy, lib, recursive
-#> = TRUE): problème lors de la copie de C:
-#> \Users\mhanf\Documents\R\R-4.1.2\library\00LOCK\glue\libs\x64\glue.dll vers C:
-#> \Users\mhanf\Documents\R\R-4.1.2\library\glue\libs\x64\glue.dll: Permission
-#> denied
-#> Warning: restored 'glue'
-#> package 'Rcpp' successfully unpacked and MD5 sums checked
-#> package 'httpuv' successfully unpacked and MD5 sums checked
-#> 
-#> The downloaded binary packages are in
-#>  C:\Users\mhanf\AppData\Local\Temp\RtmpCOxBzf\downloaded_packages
-#>          checking for file 'C:\Users\mhanf\AppData\Local\Temp\RtmpCOxBzf\remotes39802a802b3b\mhanf-ShinyFriendlyCaptcha-4a3c027/DESCRIPTION' ...  v  checking for file 'C:\Users\mhanf\AppData\Local\Temp\RtmpCOxBzf\remotes39802a802b3b\mhanf-ShinyFriendlyCaptcha-4a3c027/DESCRIPTION' (431ms)
-#>       -  preparing 'ShinyFriendlyCaptcha':
-#>    checking DESCRIPTION meta-information ...  v  checking DESCRIPTION meta-information
-#>       -  checking for LF line-endings in source and make files and shell scripts
-#>       -  checking for empty or unneeded directories
-#>       -  building 'ShinyFriendlyCaptcha_0.0.0.9000.tar.gz'
-#>      
-#> 
 ```
 
 ## Example
@@ -111,7 +85,10 @@ ui <- fluidPage(
     column(width = 3, class = "mx-auto",
            # hidden final message
            hidden(
-             h4(id ="final-msg", class = "text-primary text-center", "Thank you !")
+             h4(
+               id ="final-msg", 
+               class = "text-primary text-center", "Thank you !"
+               )
            ),
            # contact form
            card_template(

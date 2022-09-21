@@ -42,7 +42,7 @@ Main features :
 
 You can install the development version of ShinyFriendlyCaptcha from [GitHub](https://github.com/) with:
 
-``` {r}
+``` {r installation, eval=FALSE}
 # install.packages("devtools")
 devtools::install_github("mhanf/ShinyFriendlyCaptcha")
 ```
@@ -52,7 +52,7 @@ In order to use the ShinyFriendlyCaptcha library, you’ll need to go to the Fri
 
 ShinyFriendlyCaptcha exports two main functions: `sfc_output()` and `sfc_server()`. A vignette is available [here]() to help in the proper setup of these functions. A Shiny app example using these functions can be created as follows:
  
-``` {r installation, eval=FALSE}
+``` {r example, eval=FALSE}
 # libraries
 library(shiny)
 library(ShinyFriendlyCaptcha)
@@ -81,7 +81,10 @@ ui <- fluidPage(
     column(width = 3, class = "mx-auto",
            # hidden final message
            hidden(
-             h4(id ="final-msg", class = "text-primary text-center", "Thank you !")
+             h4(
+               id ="final-msg", 
+               class = "text-primary text-center", "Thank you !"
+               )
            ),
            # contact form
            card_template(

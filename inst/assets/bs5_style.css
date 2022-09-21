@@ -9,19 +9,20 @@
     transition: none !important;
     font-weight: normal;
     font-size: 14px;
+    font-family: var(--bs-font-family-base);
     line-height: 1.2;
     text-decoration: none;
     background-color: initial;
-    color: #222;
+    color: var(--bs-body-color);
 }
 
 .frc-captcha {
     position: relative;
     min-width: 250px;
     max-width: 312px;
-    border: 1px solid #f4f4f4;
+    border: 0px solid var(--bs-light);
     padding-bottom: 12px;
-    background-color: #fff;
+    background-color: var(--bs-body-bg);
 }
 
 .frc-captcha b {
@@ -35,18 +36,21 @@
 }
 
 .frc-icon {
-    fill: #222;
-    stroke: #222;
+    fill: var(--bs-primary);
+    stroke: var(--bs-primary);
     flex-shrink: 0;
     margin: 8px 8px 0 8px;
 }
 
 .frc-icon.frc-warning {
-    fill: #C00;
+    fill: var(--bs-danger);
+    stroke: var(--bs-danger);
 }
 
 .frc-success .frc-icon {
     animation: frc-fade-in 1s both ease-in;
+    fill: var(--bs-success);
+    stroke: var(--bs-success);
 }
 
 .frc-content {
@@ -78,44 +82,48 @@
     margin: 3px 0;
     height: 4px;
     border: none;
-    background-color: #eee;
-    color: #222;
+    background-color: var(--bs-dark);
+    color: var(--bs-body-color);
     width: 100%;
     transition: all 0.5s linear;
 }
 
 .frc-progress::-webkit-progress-bar {
-    background: #eee;
+    background: var(--bs-dark);
 }
 
 .frc-progress::-webkit-progress-value {
-    background: #222;
+    background: var(--bs-primary);
 }
 
 .frc-progress::-moz-progress-bar {
-    background: #222;
+    background: var(--bs-dark);
 }
 
 .frc-button {
     cursor: pointer;
     padding: 2px 6px;
-    background-color: #f1f1f1;
+    background-color: var(--bs-light);
+    color: var(--bs-dark);
     border: 1px solid transparent;
     text-align: center;
     font-weight: 600;
+    font-size: 0.9em;
     text-transform: none;
 }
 
 .frc-button:focus {
-    border: 1px solid #333;
+    border: 1px solid var(--bs-light);
 }
 
 .frc-button:hover {
-    background-color: #ddd;
+    background-color: var(--bs-dark);
+    color: var(--bs-light);
 }
 
 .frc-captcha-solution {
     display: none;
+     font-size: 10px;
 }
 
 .frc-err-url {
@@ -126,38 +134,41 @@
 /* Dark theme */
 
 .dark.frc-captcha {
-    color: #fff;
-    background-color: #222;
-    border-color: #333;
+    color: var(--bs-body-bg);
+    background-color: var(--bs-body-color);
+    border-color: var(--bs-body-color);
 }
+
+/*
+.dark .frc-button {
+    background-color: var(--bs-dark);
+    color: var(--bs-light);
+}
+
+.dark .frc-button:focus {
+    border: 1px solid var(--bs-dark);
+}
+
+.dark .frc-button:hover {
+    background-color: var(--bs-light);
+    color: var(--bs-dark);
+}
+*/
 
 .dark.frc-captcha * {
-    color: #fff;
-}
-
-.dark.frc-captcha button {
-    background-color: #444;
-}
-
-.dark .frc-icon {
-    fill: #fff;
-    stroke: #fff;
+    color: var(--bs-body-bg);
 }
 
 .dark .frc-progress {
-    background-color: #444;
+    background-color: var(--bs-body-bg);
 }
 
 .dark .frc-progress::-webkit-progress-bar {
-    background: #444;
-}
-
-.dark .frc-progress::-webkit-progress-value {
-    background: #ddd;
+    background: var(--bs-light);
 }
 
 .dark .frc-progress::-moz-progress-bar {
-    background: #ddd;
+    background: var(--bs-light);
 }
 
 @keyframes frc-fade-in {

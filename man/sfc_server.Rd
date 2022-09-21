@@ -7,7 +7,8 @@
 sfc_server(
   id,
   secret = Sys.getenv("captcha_secret"),
-  sitekey = Sys.getenv("captcha_sitekey")
+  sitekey = NULL,
+  eu_endpoint = FALSE
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ sfc_server(
 \item{secret}{The Friendly Captcha secret}
 
 \item{sitekey}{The Friendly Captcha sitekey}
+
+\item{eu_endpoint}{Logical. Use the EU endpoint (FALSE or TRUE). Only for Professional Plans.}
 }
 \value{
 Friendly Captcha input for usage in Shiny Server.

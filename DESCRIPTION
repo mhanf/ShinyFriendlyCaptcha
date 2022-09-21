@@ -1,10 +1,10 @@
 Package: ShinyFriendlyCaptcha
-Title: What the Package Does (One Line, Title Case)
+Title: Use Friendly Captcha In Shiny
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("matthieu", "Hanf", , "matthieu.hanf@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7133-1323"))
+Description: The goal of ShinyFriendlyCaptcha is to provide Friendly Captcha to Shiny apps.Friendly Captcha is a privacy-oriented alternative to Google Recaptcha to protect websites against spam and bots.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

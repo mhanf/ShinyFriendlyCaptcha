@@ -11,7 +11,22 @@ status](https://www.r-pkg.org/badges/version/ShinyFriendlyCaptcha)](https://CRAN
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of ShinyFriendlyCaptcha is to …
+The goal of ShinyFriendlyCaptcha is to provide [Friendly
+Captcha](https://friendlycaptcha.com/) to Shiny apps.
+
+## Features
+
+Friendly Captcha is a privacy-oriented alternative to Google Recaptcha
+to protect websites against spam and bots.
+
+Main features :
+
+-   Cryptographic bot protection
+-   No labeling tasks for users
+-   No tracking and cookies
+-   Fully accessible
+-   Guaranteed availability with SLA
+-   GDPR compliance agreements
 
 ## Installation
 
@@ -23,38 +38,34 @@ You can install the development version of ShinyFriendlyCaptcha from
 devtools::install_github("mhanf/ShinyFriendlyCaptcha")
 ```
 
-## Example
+## Setup
 
-This is a basic example which shows you how to solve a common problem:
+In order to use the ShinyFriendlyCaptcha library, you’ll need subscribe
+to a free plan and create a personal account to generate a ‘SITEKEY’ and
+‘SECRET’.
 
-``` r
-#library(ShinyFriendlyCaptcha)
-## basic example code
-```
+A free plan is proposed to developers for non-commercial use (protection
+of 1 website with up to 1,000 requests/month). For more details go to
+their [website](https://friendlycaptcha.com/).
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+**work in progress**
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+## Exemple
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+**work in progress**
 
-You can also embed plots, for example:
+## Contributions
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+The developer and maintainer is [mhanf](https://github.com/mhanf).
+External contributions are welcome. Please keep in mind that I am not a
+professional R developer but an enthusiastic R data scientist who plays
+with shiny and javascript as a pretext to learn new stuffs.
+Unfortunately, so is my code. Please note that the ShinyRating project
+is released with a [Contributor Code of
+Conduct](https://mhanf.github.io/ShinyRating/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+## License
+
+The ShinyRating package as a whole is licensed under the
+[MIT](https://opensource.org/licenses/mit-license.php) license.

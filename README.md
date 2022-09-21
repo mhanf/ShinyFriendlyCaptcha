@@ -40,6 +40,32 @@ You can install the development version of ShinyFriendlyCaptcha from
 ``` r
 # install.packages("devtools")
 devtools::install_github("mhanf/ShinyFriendlyCaptcha")
+#> Downloading GitHub repo mhanf/ShinyFriendlyCaptcha@HEAD
+#> glue   (1.6.1 -> 1.6.2) [CRAN]
+#> Rcpp   (1.0.7 -> 1.0.9) [CRAN]
+#> httpuv (1.6.3 -> 1.6.6) [CRAN]
+#> Installing 3 packages: glue, Rcpp, httpuv
+#> package 'glue' successfully unpacked and MD5 sums checked
+#> Warning: cannot remove prior installation of package 'glue'
+#> Warning in file.copy(savedcopy, lib, recursive
+#> = TRUE): problème lors de la copie de C:
+#> \Users\mhanf\Documents\R\R-4.1.2\library\00LOCK\glue\libs\x64\glue.dll vers C:
+#> \Users\mhanf\Documents\R\R-4.1.2\library\glue\libs\x64\glue.dll: Permission
+#> denied
+#> Warning: restored 'glue'
+#> package 'Rcpp' successfully unpacked and MD5 sums checked
+#> package 'httpuv' successfully unpacked and MD5 sums checked
+#> 
+#> The downloaded binary packages are in
+#>  C:\Users\mhanf\AppData\Local\Temp\RtmpCOxBzf\downloaded_packages
+#>          checking for file 'C:\Users\mhanf\AppData\Local\Temp\RtmpCOxBzf\remotes39802a802b3b\mhanf-ShinyFriendlyCaptcha-4a3c027/DESCRIPTION' ...  v  checking for file 'C:\Users\mhanf\AppData\Local\Temp\RtmpCOxBzf\remotes39802a802b3b\mhanf-ShinyFriendlyCaptcha-4a3c027/DESCRIPTION' (431ms)
+#>       -  preparing 'ShinyFriendlyCaptcha':
+#>    checking DESCRIPTION meta-information ...  v  checking DESCRIPTION meta-information
+#>       -  checking for LF line-endings in source and make files and shell scripts
+#>       -  checking for empty or unneeded directories
+#>       -  building 'ShinyFriendlyCaptcha_0.0.0.9000.tar.gz'
+#>      
+#> 
 ```
 
 ## Example
@@ -55,6 +81,107 @@ ShinyFriendlyCaptcha exports two main functions: `sfc_output()` and
 `sfc_server()`. A vignette is available [here]() to help in the proper
 setup of these functions. A Shiny app example using these functions can
 be created as follows:
+
+``` r
+# libraries
+library(shiny)
+library(ShinyFriendlyCaptcha)
+library(bslib)
+library(shinyjs)
+
+# simple card function
+card_template <- function(title, body){
+  # card
+  div(
+    class="card", 
+    id="form-contact",
+    # card header
+    div(class="card-header text-center", title),
+    # card body
+    div(class="card-body", body)
+  )
+}
+
+# UI
+ui <- fluidPage(
+  theme = bs_theme(version=5, bootswatch = "flatly"),
+  useShinyjs(),
+  br(),
+  fluidRow(
+    column(width = 3, class = "mx-auto",
+           # hidden final message
+           hidden(
+             h4(id ="final-msg", class = "text-primary text-center", "Thank you !")
+           ),
+           # contact form
+           card_template(
+             title = "Contact form",
+             body = tagList(
+               textInput(
+                 inputId = "name",
+                 label = "Name",
+                 width = "100%"
+               ),
+               textInput(
+                 inputId = "surname",
+                 label = "Surname",
+                 width = "100%"
+               ),
+               textInput(
+                 inputId = "mail",
+                 label = "Mail",
+                 width = "100%"
+               ),
+               sfc_output(
+                 id = "test",
+                 sitekey = Sys.getenv("captcha_sitekey"),
+                 lang = "en",
+                 dark_mode = FALSE,
+                 eu_endpoint = FALSE,
+                 theme_bs5 = TRUE
+               ),
+               br(),
+               actionButton(
+                 inputId = "ok",
+                 label= "Submit",
+                 width = "100%",
+                 class="bg-primary"
+               )
+             )
+           )
+    )
+  )
+)
+
+# Server
+server <- function(input, output) {
+  # captcha response
+  captcha_result <- sfc_server(
+    id = "test",
+    secret = Sys.getenv("captcha_secret"),
+    sitekey = Sys.getenv("captcha_sitekey"),
+    eu_endpoint = FALSE
+  )
+  # action on button click
+  observeEvent(input$ok,{
+    # captcha success
+    if (isTRUE(captcha_result()$success)){
+      hide(id = "form-contact")
+      show(id="final-msg")
+    }
+    # captcha failure
+    else{
+      showNotification(
+        type="error",
+        ui = "You must prove that your are not a bot !"
+      )
+    }
+  })
+}
+
+# Run the application
+shinyApp(ui = ui, server = server)
+```
 
 **work in progress**
 

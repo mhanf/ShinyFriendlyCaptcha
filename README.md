@@ -62,7 +62,6 @@ library(shiny)
 library(ShinyFriendlyCaptcha)
 library(bslib)
 library(shinyjs)
-
 # simple card function
 card_template <- function(title, body){
   # card
@@ -75,7 +74,6 @@ card_template <- function(title, body){
     div(class="card-body", body)
   )
 }
-
 # UI
 ui <- fluidPage(
   theme = bs_theme(version=5, bootswatch = "flatly"),
@@ -129,7 +127,6 @@ ui <- fluidPage(
     )
   )
 )
-
 # Server
 server <- function(input, output) {
   # captcha response
@@ -155,12 +152,9 @@ server <- function(input, output) {
     }
   })
 }
-
 # Run the application
 shinyApp(ui = ui, server = server)
 ```
-
-**work in progress**
 
 ## Contributions
 

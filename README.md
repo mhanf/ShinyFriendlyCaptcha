@@ -19,8 +19,9 @@ Captcha](https://friendlycaptcha.com/) to Shiny apps.
 
 ## Features
 
-Friendly Captcha is a privacy-oriented alternative to Google Recaptcha
-to protect websites against spam and bots.
+Friendly Captcha is an European alternative to Google Recaptcha. It
+allow to protect websites against spam and bots in a privacy-embedded
+design.
 
 Main features :
 
@@ -41,19 +42,23 @@ You can install the development version of ShinyFriendlyCaptcha from
 devtools::install_github("mhanf/ShinyFriendlyCaptcha")
 ```
 
-## Setup
+## Example
 
-In order to use the ShinyFriendlyCaptcha library, you’ll need subscribe
-to a free plan and create a personal account to generate a ‘SITEKEY’ and
-‘SECRET’.
+In order to use the ShinyFriendlyCaptcha library, you’ll need to go to
+Friendly Captcha [webiste](https://friendlycaptcha.com/) and subscribe a
+plan to generate `SITEKEY` and `SECRET` strings.
 
 A free plan is proposed to developers for non-commercial use (protection
 of 1 website with up to 1,000 requests/month). For more details go to
 their [website](https://friendlycaptcha.com/).
 
-**work in progress**
+ShinyFriendlyCaptcha exports two main functions: `sfc_output()` and
+`sfc_server()`.
 
-## Advanced Example
+A vignette is available [here]() to help in the proper setup of these
+functions.
+
+A Shiny app example using these functions can be created as follows:
 
 **work in progress**
 
@@ -70,5 +75,5 @@ contributing to this project, you agree to abide by its terms.
 
 ## License
 
-The ShinyRating package as a whole is licensed under the
+The ShinyFriendlyCaptcha package as a whole is licensed under the
 [MIT](https://opensource.org/licenses/mit-license.php) license.

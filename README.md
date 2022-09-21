@@ -60,14 +60,15 @@ be created as follows:
 
 ## Contributions
 
-The developer and maintainer is [mhanf](https://github.com/mhanf).
-External contributions are welcome. Please keep in mind that I am not a
-professional R developer but an enthusiastic R data scientist who plays
-with shiny and javascript as a pretext to learn new stuffs.
-Unfortunately, so is my code. Please note that the ShinyRating project
-is released with a [Contributor Code of
-Conduct](https://mhanf.github.io/ShinyRating/CODE_OF_CONDUCT.html). By
-contributing to this project, you agree to abide by its terms.
+The developer and maintainer of ShinyFriendlyCaptcha is
+[mhanf](https://github.com/mhanf). External contributions are welcome.
+Please keep in mind that I am not a professional R developer but an
+enthusiastic R data scientist who plays with shiny and javascript as a
+pretext to learn new stuffs. Unfortunately, so is my code. Please note
+that the ShinyFriendlyCaptcha project is released with a [Contributor
+Code of
+Conduct](https://mhanf.github.io/ShinyFriendlyCaptcha/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
 
 ## License
 

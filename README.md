@@ -9,6 +9,9 @@
 status](https://www.r-pkg.org/badges/version/ShinyFriendlyCaptcha)](https://CRAN.R-project.org/package=ShinyFriendlyCaptcha)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R
+badge](https://img.shields.io/badge/Build%20with-♥%20and%20R-purple)](https://github.com/mhanf/ShinyFriendlyCaptcha)
+
 <!-- badges: end -->
 
 The goal of ShinyFriendlyCaptcha is to provide [Friendly
@@ -50,7 +53,7 @@ their [website](https://friendlycaptcha.com/).
 
 **work in progress**
 
-## Exemple
+## Advanced Example
 
 **work in progress**
 

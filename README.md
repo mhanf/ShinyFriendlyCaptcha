@@ -10,7 +10,7 @@ status](https://www.r-pkg.org/badges/version/ShinyFriendlyCaptcha)](https://CRAN
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R
-badge](https://img.shields.io/badge/Build%20with-♥%20and%20R-purple)](https://github.com/mhanf/ShinyFriendlyCaptcha)
+badge](https://img.shields.io/badge/Build%20with-♥%20and%20R-blue)](https://github.com/mhanf/ShinyFriendlyCaptcha)
 
 <!-- badges: end -->
 

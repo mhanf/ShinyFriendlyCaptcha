@@ -135,7 +135,10 @@ server <- function(input, output) {
   iv$add_rule("surname", sv_required())
   iv$add_rule("mail", sv_required())
   iv$add_rule("mail", sv_email())
-  iv$add_rule("test-captchaId", sv_equal(TRUE,message_fmt ="Captcha validation required"))
+  iv$add_rule(
+    "test-captchaId", 
+    sv_equal(TRUE,message_fmt ="Captcha validation required")
+    )
   # captcha response
   captcha_result <- sfc_server(
     id = "test",

@@ -1,7 +1,7 @@
 #' Create a Friendly Captcha input
 #' @description Create a Friendly Captcha input for usage in a Shiny UI.
-#' @importFrom shiny NS tagList div tags HTML
-#' @importFrom htmltools tagAppendAttributes
+#' @importFrom shiny NS tagList div tags HTML checkboxInput
+#' @importFrom htmltools htmlDependency tagInsertChildren tagAppendAttributes
 #'
 #' @param id The Friendly Captcha input id
 #' @param lang Language attribute for he Friendly Captcha input. Available values are "en",
@@ -30,7 +30,7 @@ sfc_output <- function(id,
   bs5_dep <- NULL
   if (isTRUE(theme_bs5)) {
     # load dependency
-    bs5_dep <- htmltools::htmlDependency(
+    bs5_dep <- htmlDependency(
       name = "bs5_dep",
       version = "0.0.1",
       package = "ShinyFriendlyCaptcha",
@@ -76,24 +76,33 @@ sfc_output <- function(id,
   # class definition
   captcha_class <- "frc-captcha"
   if (isTRUE(dark_mode)) {
-    captcha_class <- "frc-captcha dark"
+    captcha_class <- sprintf("%s dark", captcha_class)
+  }
+  # endpoint
+  endpoint <- "https://api.friendlycaptcha.com/api/v1/puzzle"
+  if (isTRUE(eu_endpoint)) {
+    endpoint <- "https://eu-api.friendlycaptcha.eu/api/v1/puzzle"
   }
   # capcha tag definition
   captcha <- div(
     class = captcha_class,
     `data-lang` = lang,
     `data-sitekey` = sitekey,
-    `data-callback` = I("shinyCaptcha")
+    `data-callback` = I("shinyCaptcha"),
+    `data-puzzle-endpoint` = endpoint
   )
-  # eu endpoint
-  if (isTRUE(eu_endpoint)) {
-    captcha <- tagAppendAttributes(
-      captcha,
-      "data-puzzle-endpoint" = "https://eu-api.friendlycaptcha.eu/api/v1/puzzle"
-    )
-  }
   # attach dependencies
   captcha <- tagList(bs5_dep, captcha_js1, captcha_js2, captcha_js3, captcha)
+  # tcheckbox input
+  input_captcha <- checkboxInput(inputId = ns("captchaId"), label = NULL, value = FALSE)
+  input_captcha <- tagAppendAttributes(input_captcha, .cssSelector = "div", style = "display:none;")
+  # final tag
+  captcha <- tagInsertChildren(
+    input_captcha,
+    after = 1,
+    captcha
+  )
+
   # return
   return(captcha)
 }

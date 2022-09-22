@@ -11,6 +11,7 @@ status](https://www.r-pkg.org/badges/version/ShinyFriendlyCaptcha)](https://CRAN
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R
 badge](https://img.shields.io/badge/Build%20with-♥%20and%20R-blue)](https://github.com/mhanf/ShinyFriendlyCaptcha)
+[![MIT](https://opensource.org/licenses/MIT)](https://opensource.org/licenses/MIT)
 
 <!-- badges: end -->
 
@@ -23,7 +24,7 @@ Friendly Captcha is an European alternative to Google Recaptcha. It
 allow to protect websites against spam and bots in a privacy-embedded
 design.
 
-Main features :
+Friendly Captcha features :
 
 -   Cryptographic bot protection
 -   No labeling tasks for users
@@ -31,6 +32,13 @@ Main features :
 -   Fully accessible
 -   Guaranteed availability with SLA
 -   GDPR compliance agreements
+
+ShinyFriendlyCaptcha additional features :
+
+-   Theme optimized for Bootstrap 5 delivered by the
+    [bslib](https://rstudio.github.io/bslib/) package.
+-   Compatible with server validation of inputs based on
+    [shinyvalidate](https://rstudio.github.io/shinyvalidate/) package.
 
 ## Installation
 
@@ -44,12 +52,12 @@ devtools::install_github("mhanf/ShinyFriendlyCaptcha")
 
 ## Example
 
-In order to use the ShinyFriendlyCaptcha library, you’ll need to go to
-the Friendly Captcha [website](https://friendlycaptcha.com/) and
-subscribe a plan to generate valid `SITEKEY` and `SECRET` strings. A
-free plan is proposed to developers for non-commercial use (protection
-of 1 website with up to 1,000 requests/month). For more details go to
-their [website](https://friendlycaptcha.com/).
+In order to use the ShinyFriendlyCaptcha library, you’ll need to
+subscribe a friendly Captcha plan to generate valid `SITEKEY` and
+`SECRET` strings. A free plan is proposed to developers for
+non-commercial use (protection of 1 website with up to 1,000
+requests/month). For more details go to their
+[website](https://friendlycaptcha.com/).
 
 ShinyFriendlyCaptcha exports two main functions: `sfc_output()` and
 `sfc_server()`. A vignette is available [here]() to help in the proper
@@ -62,6 +70,7 @@ library(shiny)
 library(ShinyFriendlyCaptcha)
 library(bslib)
 library(shinyjs)
+library(shinyvalidate)
 # simple card function
 card_template <- function(title, body){
   # card
@@ -129,6 +138,13 @@ ui <- fluidPage(
 )
 # Server
 server <- function(input, output) {
+  # shinyvalidate
+  iv <- InputValidator$new()
+  iv$add_rule("name", sv_required())
+  iv$add_rule("surname", sv_required())
+  iv$add_rule("mail", sv_required())
+  iv$add_rule("mail", sv_email())
+  iv$add_rule("test-captchaId", sv_equal(TRUE,message_fmt ="Captcha validation required"))
   # captcha response
   captcha_result <- sfc_server(
     id = "test",
@@ -138,18 +154,11 @@ server <- function(input, output) {
   )
   # action on button click
   observeEvent(input$ok,{
-    # captcha success
-    if (isTRUE(captcha_result()$success)){
-      hide(id = "form-contact")
-      show(id="final-msg")
-    }
-    # captcha failure
-    else{
-      showNotification(
-        type="error",
-        ui = "You must prove that your are not a bot !"
-      )
-    }
+    iv$enable()
+    req(iv$is_valid())
+    req(captcha_result()$success)
+    hide(id = "form-contact")
+    show(id="final-msg")
   })
 }
 # Run the application

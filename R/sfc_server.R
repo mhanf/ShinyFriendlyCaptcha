@@ -4,7 +4,7 @@
 #' @param secret The Friendly Captcha secret
 #' @param sitekey The Friendly Captcha sitekey
 #' @param eu_endpoint Logical. Use the EU endpoint (FALSE or TRUE). Only for Professional Plans.
-#' @importFrom shiny moduleServer observe reactive isTruthy
+#' @importFrom shiny moduleServer observe reactive isTruthy observeEvent updateCheckboxInput
 #' @importfrom httr POST content
 #' @importFrom jsonlite fromJSON
 #' @return  Friendly Captcha input for usage in Shiny Server.
@@ -42,6 +42,20 @@ sfc_server <- function(id,
         )
       }
     })
+
+    # update of hidden checkbox
+    observeEvent(status()$success,
+      ignoreInit = TRUE,
+      ignoreNULL = TRUE,
+      {
+        updateCheckboxInput(
+          session = session,
+          inputId = "captchaId",
+          value = status()$success
+        )
+      }
+    )
+
     return(status)
   })
 }

@@ -11,6 +11,7 @@ status](https://www.r-pkg.org/badges/version/ShinyFriendlyCaptcha)](https://CRAN
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R
 badge](https://img.shields.io/badge/Build%20with-♥%20and%20R-blue)](https://github.com/mhanf/ShinyFriendlyCaptcha)
+[![R-CMD-check](https://github.com/mhanf/ShinyFriendlyCaptcha/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mhanf/ShinyFriendlyCaptcha/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of ShinyFriendlyCaptcha is to provide [Friendly

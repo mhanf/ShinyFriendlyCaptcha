@@ -69,15 +69,15 @@ library(bslib)
 library(shinyjs)
 library(shinyvalidate)
 # simple card function
-card_template <- function(title, body){
+card_template <- function(id, title, body){
   # card
   div(
-    class="card", 
-    id="form-contact",
+    class = "card", 
+    id = id,
     # card header
-    div(class="card-header text-center", title),
+    div(class = "card-header text-center", title),
     # card body
-    div(class="card-body", body)
+    div(class = "card-body", body)
   )
 }
 # UI
@@ -96,6 +96,7 @@ ui <- fluidPage(
            ),
            # contact form
            card_template(
+             id = "form-contact",
              title = "Contact form",
              body = tagList(
                textInput(
@@ -112,6 +113,12 @@ ui <- fluidPage(
                  inputId = "mail",
                  label = "Mail",
                  width = "100%"
+               ),
+               textAreaInput(
+                  inputId = "msg",
+                 label = "Message",
+                 width = "100%",
+                 height = "150px"
                ),
                sfc_output(
                  id = "test",
@@ -141,6 +148,7 @@ server <- function(input, output) {
   iv$add_rule("surname", sv_required())
   iv$add_rule("mail", sv_required())
   iv$add_rule("mail", sv_email())
+  iv$add_rule("msg", sv_required())
   iv$add_rule(
     "test-captchaId", 
     sv_equal(TRUE,message_fmt ="Captcha validation required")

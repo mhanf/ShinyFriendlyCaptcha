@@ -1,6 +1,6 @@
 Package: ShinyFriendlyCaptcha
 Title: Use Friendly Captcha In Shiny
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("matthieu", "Hanf", , "matthieu.hanf@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7133-1323"))
@@ -14,3 +14,4 @@ Imports:
     httr,
     jsonlite,
     shiny
+URL: https://mhanf.github.io/ShinyFriendlyCaptcha/

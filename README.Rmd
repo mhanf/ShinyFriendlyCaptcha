@@ -50,13 +50,39 @@ You can install the development version of ShinyFriendlyCaptcha from [GitHub](ht
 # install.packages("devtools")
 devtools::install_github("mhanf/ShinyFriendlyCaptcha")
 ```
-## Example 
+## Setup 
 
 In order to use the ShinyFriendlyCaptcha library, you’ll need to subscribe a friendly Captcha plan to obtain valid `SITEKEY` and `SECRET` strings. A free plan is proposed to developers for non-commercial use (protection of 1 website with up to 1,000 requests/month). For more details go to their [website](https://friendlycaptcha.com/).
 
-ShinyFriendlyCaptcha exports two main functions: `sfc_output()` and `sfc_server()`. A vignette is available [here]() to help in the proper setup of these functions. A minimalistic Shiny app example using these functions can be created as follows:
- 
-``` {r example, eval=FALSE}
+ShinyFriendlyCaptcha exports two main functions: `sfc_output()` and `sfc_server()`. 
+
+The `sfc_output()` function accept the following parameters :
+
+* **id:** Module id
+* **sitekey:** Friendly Captcha sitekey
+* **lang:** Language attribute for he Friendly Captcha input. Available values are "en", "fr", "de", "it", "nl", "pt", "es", "ca", "da", "ja", "ru", "sv", "el", "uk", "bg", "cs", "sk", "no", "fi", "lt", "lt", "pl", "et", "hr", "sr", "sl", "hu", or "ro" for English,French, German, Italian, Dutch, Portuguese, Spanish, Catalan, Danish, Japanese, Russian, Swedish,Greek, Ukrainian, Bulgarian, Czech, Slovak, Norwegian, Finnish, Latvian, Lithuanian, Polish, Estonian, Croatian, Serbian, Slovenian, Hungarian, and Romanian respectively.
+* **dark_mode:** logical. Enable dark mode (FALSE or TRUE)
+* **eu_endpoint:** Logical. Use the EU endpoint (FALSE or TRUE). Only for Professional Plans.
+* **theme_bs5:** Logical. Use a theme compatible with Bootstrap 5 (FALSE or TRUE).
+
+It is also possible to use a personalized theme. As specified on the Friendly Captcha website, You can create your own stylesheet for the Friendly Captcha widget. The [existing css](https://github.com/FriendlyCaptcha/friendly-challenge/blob/master/src/styles.css) file is probably a good start. To use your own custom theme you could add the following to the ui part of your shiny App:
+
+``` {r stylesheet, eval=FALSE, echo = TRUE}
+ tags$link(rel="stylesheet", id="frc-style", href="www/my-custom-widget-theme.css")
+```
+
+The `sfc_server()` function accept the following parameters :
+
+* **id:** Module id
+* **sitekey:** Friendly Captcha sitekey
+* **secret:** The Friendly Captcha secret
+* **eu_endpoint:** Logical. Use the EU endpoint (FALSE or TRUE). Only for Professional Plans.
+
+## Example 
+
+A minimalist Shiny app example using these functions can be created as follows:
+
+``` {r example, eval=FALSE, echo = TRUE}
 # libraries
 library(shiny)
 library(ShinyFriendlyCaptcha)
@@ -175,6 +201,4 @@ The developer and maintainer of ShinyFriendlyCaptcha is [mhanf](https://github.c
 ## License
 
 The ShinyFriendlyCaptcha package as a whole is licensed under the [MIT](https://opensource.org/licenses/mit-license.php) license.
-
-
 

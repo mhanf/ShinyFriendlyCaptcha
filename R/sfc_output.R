@@ -87,14 +87,14 @@ sfc_output <- function(id,
   # javascript dependency 1
   captcha_js1 <- tags$script(
     type = "module",
-    src = "https://unpkg.com/friendly-challenge@0.9.7/widget.module.min.js",
+    src = "https://unpkg.com/friendly-challenge@0.9.8/widget.module.min.js",
     async = NA,
     defer = NA
   )
   # javascript dependency 2
   captcha_js2 <- tags$script(
     nomodule = NA,
-    src = "https://unpkg.com/friendly-challenge@0.9.7/widget.min.js",
+    src = "https://unpkg.com/friendly-challenge@0.9.8/widget.min.js",
     async = NA,
     defer = NA
   )

@@ -2,7 +2,6 @@
 #' @description Create a Friendly Captcha input for usage in a Shiny UI.
 #' @importFrom shiny NS tagList div tags HTML checkboxInput
 #' @importFrom htmltools htmlDependency tagInsertChildren tagAppendAttributes
-#'
 #' @param id The Friendly Captcha input id
 #' @param lang Language attribute for he Friendly Captcha input. Available values are "en",
 #' "fr", "de", "it", "nl", "pt", "es", "ca", "da", "ja", "ru", "sv", "el", "uk", "bg", "cs",
@@ -48,15 +47,12 @@
 #'   shiny::shinyApp(ui, server)
 #' }
 
-
-
 sfc_output <- function(id,
                        sitekey = Sys.getenv("captcha_sitekey"),
                        lang = "en",
                        eu_endpoint = FALSE,
                        theme_bs5 = FALSE,
                        dark_mode = FALSE) {
-
   # bootstrap 5 theme
   bs5_dep <- NULL
   if (isTRUE(theme_bs5)) {
@@ -85,18 +81,20 @@ sfc_output <- function(id,
     several.ok = FALSE
   )
   # javascript dependency 1
-  captcha_js1 <- tags$script(
-    type = "module",
-    src = "https://unpkg.com/friendly-challenge@0.9.8/widget.module.min.js",
-    async = NA,
-    defer = NA
+  captcha_js1 <- htmltools::htmlDependency(
+    name = "friendlyCaptcha1",
+    version = "0.9.8",
+    package = "ShinyFriendlyCaptcha",
+    src = "assets",
+    script = "widget.module.min.js",
   )
   # javascript dependency 2
-  captcha_js2 <- tags$script(
-    nomodule = NA,
-    src = "https://unpkg.com/friendly-challenge@0.9.8/widget.min.js",
-    async = NA,
-    defer = NA
+  captcha_js2 <- htmltools::htmlDependency(
+    name = "friendlyCaptcha2",
+    version = "0.9.8",
+    package = "ShinyFriendlyCaptcha",
+    src = "assets",
+    script = "widget.min.js"
   )
   # javascript dependency 3
   captcha_js3 <- tags$script(
@@ -133,7 +131,6 @@ sfc_output <- function(id,
     after = 1,
     captcha
   )
-
   # return
   return(captcha)
 }

@@ -13,7 +13,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ShinyFriendlyCaptcha
+
+# ShinyFriendlyCaptcha <a href="https://mhanf.github.io/ShinyFriendlyCaptcha/"><img src="man/figures/logo.png" align="right" height="139" /></a>
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/ShinyFriendlyCaptcha)](https://CRAN.R-project.org/package=ShinyFriendlyCaptcha)
@@ -82,7 +83,7 @@ The `sfc_server()` function accept the following parameters :
 
 A minimalist Shiny app example using these functions can be created as follows:
 
-``` {r example, eval=FALSE, echo = TRUE}
+``` {r example, eval=FALSE, echo = TRUE, warning = FALSE}
 # libraries
 library(shiny)
 library(ShinyFriendlyCaptcha)
@@ -185,7 +186,7 @@ server <- function(input, output) {
   observeEvent(input$ok,{
     iv$enable()
     req(iv$is_valid())
-    req(captcha_result()$success)
+    #req(captcha_result()$success)
     hide(id = "form-contact")
     show(id="final-msg")
   })

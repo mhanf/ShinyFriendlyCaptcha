@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ShinyFriendlyCaptcha
+# ShinyFriendlyCaptcha <a href="https://mhanf.github.io/ShinyFriendlyCaptcha/"><img src="man/figures/logo.png" align="right" height="139" /></a>
 
 <!-- badges: start -->
 
@@ -206,7 +206,7 @@ server <- function(input, output) {
   observeEvent(input$ok,{
     iv$enable()
     req(iv$is_valid())
-    req(captcha_result()$success)
+    #req(captcha_result()$success)
     hide(id = "form-contact")
     show(id="final-msg")
   })

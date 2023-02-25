@@ -108,7 +108,7 @@ ui <- fluidPage(
   useShinyjs(),
   br(),
   fluidRow(
-    column(width = 3, class = "mx-auto",
+    column(width = 4, class = "mx-auto",
            # hidden final message
            hidden(
              h4(

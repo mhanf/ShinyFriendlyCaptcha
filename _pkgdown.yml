@@ -3,6 +3,6 @@ template:
   bootstrap: 5
   bslib:
     primary: "#0085BD"
-    navbar:
-      bg: primary
+navbar:
+  bg: primary
 

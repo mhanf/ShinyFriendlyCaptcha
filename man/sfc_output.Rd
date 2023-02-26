@@ -20,11 +20,11 @@ sfc_output(
 
 \item{lang}{Language attribute for he Friendly Captcha input. Available values are "en",
 "fr", "de", "it", "nl", "pt", "es", "ca", "da", "ja", "ru", "sv", "el", "uk", "bg", "cs",
-"sk", "no", "fi", "lt", "lt", "pl", "et", "hr", "sr", "sl", "hu", or "ro" for English,
-French, German, Italian, Dutch, Portuguese, Spanish, Catalan, Danish, Japanese,
-Russian, Swedish,Greek, Ukrainian, Bulgarian, Czech, Slovak, Norwegian, Finnish,
-Latvian, Lithuanian, Polish, Estonian, Croatian, Serbian, Slovenian, Hungarian,
-and Romanian respectively.}
+"sk", "no", "fi", "lt", "lt", "pl", "et", "hr", "sr", "sl", "hu", "ro", "zh", "zh_TW",
+and "vi" for English, French, German, Italian, Dutch, Portuguese, Spanish, Catalan, Danish,
+Japanese, Russian, Swedish, Greek, Ukrainian, Bulgarian, Czech, Slovak, Norwegian, Finnish,
+Latvian, Lithuanian, Polish, Estonian, Croatian, Serbian, Slovenian, Hungarian, Romanian,
+Chinese (Simplified), Chinese (Traditional), and Vietnamese respectively.}
 
 \item{eu_endpoint}{Logical. Use the EU endpoint (FALSE or TRUE). Only for Professional Plans.}
 

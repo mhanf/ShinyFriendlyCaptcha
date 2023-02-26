@@ -5,7 +5,7 @@
 #' @param sitekey The Friendly Captcha sitekey
 #' @param eu_endpoint Logical. Use the EU endpoint (FALSE or TRUE). Only for Professional Plans.
 #' @importFrom shiny moduleServer observe reactive isTruthy observeEvent updateCheckboxInput
-#' @importfrom httr POST content
+#' @importFrom httr POST content
 #' @importFrom jsonlite fromJSON
 #' @return  Friendly Captcha input for usage in Shiny Server.
 #' @export

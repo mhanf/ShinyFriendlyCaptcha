@@ -112,7 +112,10 @@ library(shinyjs)
 library(shinyvalidate)
 # UI
 ui <- fluidPage(
-  theme = bs_theme(version=5),
+  theme = bs_theme(
+    version=5,
+    bootswatch = "flatly"
+    ),
   useShinyjs(),
   br(),
   fluidRow(

@@ -81,7 +81,7 @@ The `sfc_server()` function accept the following parameters :
 
 ## Example 
 
-A minimalist Shiny app example using these functions can be created as follows:
+A minimalist Shiny app example using these functions can be created as follows :
 
 ``` {r example, eval=FALSE, echo = TRUE, warning = FALSE}
 # libraries
@@ -92,7 +92,7 @@ library(shinyjs)
 library(shinyvalidate)
 # UI
 ui <- fluidPage(
-  theme = bs_theme(version=5, bootswatch = "flatly"),
+  theme = bs_theme(version=5),
   useShinyjs(),
   br(),
   fluidRow(

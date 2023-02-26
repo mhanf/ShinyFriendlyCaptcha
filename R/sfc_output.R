@@ -83,7 +83,7 @@ sfc_output <- function(id,
   # javascript dependency 1
   captcha_js1 <- htmltools::htmlDependency(
     name = "friendlyCaptcha1",
-    version = "0.9.8",
+    version = "0.9.10",
     package = "ShinyFriendlyCaptcha",
     src = "assets",
     script = "widget.module.min.js",
@@ -91,7 +91,7 @@ sfc_output <- function(id,
   # javascript dependency 2
   captcha_js2 <- htmltools::htmlDependency(
     name = "friendlyCaptcha2",
-    version = "0.9.8",
+    version = "0.9.10",
     package = "ShinyFriendlyCaptcha",
     src = "assets",
     script = "widget.min.js"

@@ -5,3 +5,4 @@ template:
     primary: "#0085BD"
 navbar:
   bg: primary
+  type: dark

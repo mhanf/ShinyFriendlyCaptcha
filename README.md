@@ -64,7 +64,7 @@ The `sfc_output()` function accept the following parameters :
 
 -   **id:** Module id
 -   **sitekey:** Friendly Captcha sitekey
--   **lang:** Language attribute for he Friendly Captcha input.
+-   **lang:** Language attribute for the Friendly Captcha input.
     Available values are “en”, “fr”, “de”, “it”, “nl”, “pt”, “es”, “ca”,
     “da”, “ja”, “ru”, “sv”, “el”, “uk”, “bg”, “cs”, “sk”, “no”, “fi”,
     “lt”, “lt”, “pl”, “et”, “hr”, “sr”, “sl”, “hu”, or “ro” for

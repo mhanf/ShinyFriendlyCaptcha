@@ -42,7 +42,6 @@ sfc_server <- function(id,
         )
       }
     })
-
     # update of hidden checkbox
     observeEvent(status()$success,
       ignoreInit = TRUE,

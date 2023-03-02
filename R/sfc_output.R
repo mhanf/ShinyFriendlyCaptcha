@@ -24,29 +24,28 @@
 #'
 #'   ui <- fluidPage(
 #'     sfc_output("captcha",
-#'     sitekey = Sys.getenv("captcha_sitekey"),
-#'     lang = "en",
-#'     eu_endpoint = FALSE,
-#'     theme_bs5 = FALSE,
-#'     dark_mode = FALSE
+#'       sitekey = Sys.getenv("captcha_sitekey"),
+#'       lang = "en",
+#'       eu_endpoint = FALSE,
+#'       theme_bs5 = FALSE,
+#'       dark_mode = FALSE
 #'     ),
 #'     shiny::textOutput("result")
 #'   )
 #'   server <- function(input, output, session) {
-#'
-#'   captcha_result <- sfc_server(
-#'   id = "captcha",
-#'   secret = Sys.getenv("captcha_secret"),
-#'   sitekey = Sys.getenv("captcha_sitekey"),
-#'   eu_endpoint = FALSE
-#'   )
+#'     captcha_result <- sfc_server(
+#'       id = "captcha",
+#'       secret = Sys.getenv("captcha_secret"),
+#'       sitekey = Sys.getenv("captcha_sitekey"),
+#'       eu_endpoint = FALSE
+#'     )
 #'     shiny::observe({
-#'       output$result <- shiny::renderText(paste0("Captcha result: ",captcha_result()$success))
+#'       output$result <- shiny::renderText(paste0("Captcha result: ", captcha_result()$success))
 #'     })
 #'   }
 #'   shiny::shinyApp(ui, server)
 #' }
-
+#'
 sfc_output <- function(id,
                        sitekey = Sys.getenv("captcha_sitekey"),
                        lang = "en",

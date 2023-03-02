@@ -9,6 +9,8 @@
 status](https://www.r-pkg.org/badges/version/ShinyFriendlyCaptcha)](https://CRAN.R-project.org/package=ShinyFriendlyCaptcha)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit-0/)
 [![R
 badge](https://img.shields.io/badge/Build%20with-♥%20and%20R-blue)](https://github.com/mhanf/ShinyFriendlyCaptcha)
 [![R-CMD-check](https://github.com/mhanf/ShinyFriendlyCaptcha/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mhanf/ShinyFriendlyCaptcha/actions/workflows/R-CMD-check.yaml)
